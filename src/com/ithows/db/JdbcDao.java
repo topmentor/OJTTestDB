@@ -26,13 +26,11 @@ public class JdbcDao {
     public static String JDBC_DRIVER_1 = "com.mysql.jdbc.Driver";
     public static String JDBC_DRIVER_2 = "org.mariadb.jdbc.Driver";
     public static String DB_SERVER_IP = "127.0.0.1";   // 연결 DB의 주소
-//    public static String DB_SERVER_IP = "setri.ithows.com";   // 연결 DB의 주소
     public static int DB_SERVER_PORT = 3306;               // 연결 DB의 포트
-//    public static int DB_SERVER_PORT = 25306;               // 연결 DB의 포트
-    public static String DB_URL = "jdbc:mysql://" + DB_SERVER_IP + ":" + DB_SERVER_PORT + "/locationdb?characterEncoding=utf8&amp;useSSL=false";
+    public static String DB_URL = "jdbc:mysql://" + DB_SERVER_IP + ":" + DB_SERVER_PORT + "/_________?characterEncoding=utf8&amp;useSSL=false";  // db이름 지정
 
-    public static String USERNAME = "soxuser";
-    public static String PASSWORD = "sox123";
+    public static String USERNAME = "username";  // 유저 이름
+    public static String PASSWORD = "****";   // 비번
 
     public static int MIN_IDLE = 3;
     public static int MAX_ACTIVE = 5;
@@ -92,8 +90,6 @@ public class JdbcDao {
         Connection conn = null;
         try {
             conn = JdbcDao.getDataSource().getConnection();
-//            Class.forName(JDBC_DRIVER_1);
-//            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             conn.setAutoCommit(false);
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage() +  " : Connection 얻어내기 에러");
